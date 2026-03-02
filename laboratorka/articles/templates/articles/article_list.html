@@ -5,6 +5,25 @@
     <title>Article List</title>
 </head>
 <body>
+<main>
     <h1>Article List</h1>
+    <div class="articles">
+        {% for element in articles %}
+            <div class="article__item">
+                <h2>
+                    <a href="">
+                        {{ element.title }}
+                    </a>
+                </h2>
+                <p>
+                    {{ element.body }}
+                </p>
+                <time>
+                    {{element.date}}
+                </time>
+            </div>
+        {% endfor %}
+    </div>
+</main>
 </body>
 </html>
