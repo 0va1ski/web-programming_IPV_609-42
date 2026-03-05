@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gruvbox Journal{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'imgs/icon.svg' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="{% url 'homepage' %}" class="logo-link" title="На главную">
+                    <img src="{% static 'imgs/icon.svg' %}"
+                         alt="Gruvbox Journal"
+                         class="logo-image">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'homepage' %}"
+                           class="nav-link {% if request.path == '/' %}active{% endif %}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/articles/"
+                           class="nav-link {% if '/articles/' in request.path %}active{% endif %}">
+                            Articles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'about' %}"
+                           class="nav-link {% if '/about/' in request.path %}active{% endif %}">
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% block content %}{% endblock content %}
+    </main>
+</body>
+</html>
