@@ -1,0 +1,220 @@
+/* Gruvbox theme - dark */
+:root {
+    --bg-dark: #1d2021;
+    --bg-light: #3c3836;
+    --fg-light: #fbf1c7;
+    --fg-dark: #ebdbb2;
+    --gray: #928374;
+    --red: #fb4934;
+    --green: #b8bb26;
+    --yellow: #fabd2f;
+    --blue: #83a598;
+    --purple: #d3869b;
+    --aqua: #8ec07c;
+    --orange: #fe8019;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--fg-dark);
+    font-family: 'Segoe UI', 'Fira Code', monospace, system-ui;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/*header */
+.site-header {
+    background-color: var(--bg-light);
+    border-bottom: 2px solid var(--gray);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.logo-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+.logo-image {
+    height: 48px;
+    width: auto;
+}
+
+/*навигация */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--fg-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+}
+
+.nav-link.active {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+}
+
+/*основной контент */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+h1 {
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-left: 4px solid var(--yellow);
+    padding-left: 1rem;
+}
+
+h2 {
+    color: var(--blue);
+    margin: 1.2rem 0 0.8rem 0;
+}
+
+/*список статей */
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.article__item {
+    background-color: var(--bg-light);
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: transform 0.1s ease, box-shadow 0.2s;
+}
+
+.article__item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.article__item h2 a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.article__item h2 a:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+.article__item p {
+    margin: 0.6rem 0;
+    color: var(--fg-dark);
+}
+
+time {
+    font-size: 0.85rem;
+    color: var(--gray);
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/*детальная статья */
+.article-detail {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.article-detail p {
+    margin-top: 1.5rem;
+    white-space: pre-wrap;
+}
+
+/*адаптивность */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 0.5rem;
+    }
+
+    .article__item {
+        padding: 1rem;
+    }
+}
+
+/*изображения в детальной статье*/
+.article-thumbnail {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--gray);
+    background: var(--bg-light);
+}
+
+/*изображения внутри body статьи (если пользователь вставил <img>) */
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--gray);
+}
+
+
+.article__item:hover .article-list-thumb {
+    transform: scale(1.02);
+}
+
+/*очистка обтекания для контента */
+.article-body::after {
+    content: "";
+    display: table;
+    clear: both;
+}
