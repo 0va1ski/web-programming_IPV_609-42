@@ -66,6 +66,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -125,7 +126,7 @@ h2 {
 
 .article__item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .article__item h2 a {
@@ -217,4 +218,61 @@ time {
     content: "";
     display: table;
     clear: both;
+}
+
+button {
+    background: none;
+    font-family: 'Segoe UI', 'Fira Code', monospace, system-ui;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--yellow);
+}
+.btn-primary.link {
+    color: white;
+    background: var(--yellow);
+    text-decoration: none;
+}
+
+.btn-outline {
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+}
+
+input[type="text"],
+input[type="password"]{
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--gray);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    color: var(--fg-dark);
+    font-family: 'Segoe UI', 'Fira Code', monospace, system-ui;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    margin: 1rem;
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+    outline: none;
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 2px rgba(250, 189, 47, 0.2);
+    background-color: #282828;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--fg-dark);
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg-dark) inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
