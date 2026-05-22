@@ -1,5 +1,5 @@
 #render - объединяет html-шаблон с данными и возвращает http-ответ
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 #импортирует класс для перенаправления пользователя на другой url после успешной регистрации
 from django.http import HttpResponseRedirect
@@ -30,7 +30,9 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return HttpResponseRedirect('/articles')
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
+            return redirect('homepage')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})

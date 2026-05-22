@@ -23,14 +23,14 @@
                        class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/articles/" class="nav-link {% if '/articles/' in request.path %}active{% endif %}">Articles</a>
+                    <a href="{% url 'articles:article_list' %}" class="nav-link {% if '/articles/' in request.path %}active{% endif %}">Articles</a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'about' %}" class="nav-link {% if '/about/' in request.path %}active{% endif %}">About</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                    <form class="form" action="/accounts/logout/" method="post">
+                    <form class="form" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
                         <button class="btn btn-outline" type="submit">Logout</button>
                     </form>
@@ -38,7 +38,7 @@
                 {% else %}
                 <li>
                     <button class="btn btn-primary" type="submit">
-                        <a class="btn btn-primary link" href="{% url 'login' %}">Login</a>
+                        <a class="btn btn-primary link" href="{% url 'accounts:login' %}">Login</a>
                     </button>
                 </li>
                 {% endif %}

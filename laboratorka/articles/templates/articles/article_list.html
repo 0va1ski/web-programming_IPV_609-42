@@ -5,11 +5,16 @@
 {% block content %}
     <main>
         <h1>Article List</h1>
+        {% if user.is_authenticated %}
+            <button class="btn btn-primary" type="submit">
+                <a href="{% url 'articles:article_create' %}">Create article</a>
+            </button>
+        {% endif %}
         <div class="articles">
             {% for element in articles %}
                 <div class="article__item">
                     <h2>
-                        <a href="{% url 'article_detail' slug=element.slug %}">
+                        <a href="{% url 'articles:article_detail' element.slug %}">
                             {{ element.title }}
                         </a>
                     </h2>

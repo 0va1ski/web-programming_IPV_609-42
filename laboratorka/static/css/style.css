@@ -115,6 +115,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin: 1.2rem;
 }
 
 .article__item {
@@ -235,6 +236,10 @@ button {
 .btn-primary {
     color: white;
     background: var(--yellow);
+}
+.btn-primary a {
+    color: white;
+    text-decoration: none;
 }
 .btn-primary.link {
     color: white;
