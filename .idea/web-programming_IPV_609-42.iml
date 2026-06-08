@@ -7,7 +7,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/laboratorka/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (web-programming_IPV_609-42)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (web-programming_IPV_609-42) (8)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
